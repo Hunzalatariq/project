@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: orangered;
+    background: linear-gradient(rgb(100 100 100 / 70%), rgba(17, 17, 17, 0.7)),
+    url(abt.jpeg) no-repeat;
+  background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff5722;
+    font-size: 2rem;
+}
+h2{
+    color: orangered;
+}
+p{
+    color: #fff;
+}
+.car-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.car {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.car img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.car h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.car p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.car button {
+   /* display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex; */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.car button:hover {
+    background-color: #45a049;
+}
+a{
+    /* border-radius: 10rem; */
+   cursor: pointer;
+   background: none;
+   transition: 0.5s;
+   font-weight: bold;  
+   color:#ff5722;
+   
+  }
+ 
+  a:hover {
+   background: #ff5722;
+   color: white;
+     }
+     h1 {
+        color: #ff5722;
+        font-size: 2rem;
+      }
+      
+       h1 {
+        font-size: 4rem;
+        color: #fff;
+      }
+      /* .about {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 5rem;
+      } */
+      /* Define keyframes for the animation */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animation to an element */
+  .animated {
+    animation: slideInFromLeft 1s ease-in-out;
+  }
+  

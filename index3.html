@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental Service</title>
+  <style>
+    /* styles.css */
+body {
+    background: linear-gradient(rgb(100 100 100 / 70%), rgba(17, 17, 17, 0.7)),
+    url(../images/home-bgg.jpg) no-repeat;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+ border: 1px solid orangered; 
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: orangered;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  color: orangered;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: orangered;
+}
+
+.car {
+  border: 1px solid orangered;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.car h3 {
+  margin-top: 0;
+  color: orangered;
+}
+.service-hover{
+  color:orangered
+}
+.service{
+   text-align: center;
+   background-color:white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px solid black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Car Rental Service</h1>
+    <div class="form-group">
+      <label for="destination">Choose your destination:</label>
+      <select id="destination">
+        <option value="">Select Destination</option>
+        <option value="City A">City A</option>
+        <option value="City B">City B</option>
+        <option value="City C">City C</option>
+      </select>
+      <!-- <a href="index.html">Back to Main menu</a> -->
+    </div>
+    <div id="carList"></div>
+  </div>
+  <footer class="service">
+    <a href="index.html">Back to Main Menu</a>
+   </footer> 
+  <!-- <a href="index.html">Back to Main menu</a> -->
+  
+
+  
+  <script>
+    // script.js
+document.getElementById('destination').addEventListener('change', function() {
+  var destination = this.value;
+  var carList = document.getElementById('carList');
+  carList.innerHTML = '';
+
+  if (destination !== '') {
+    var availableCars = getAvailableCars(destination);
+
+    if (availableCars.length > 0) {
+      var fragment = document.createDocumentFragment();
+      availableCars.forEach(function(car) {
+        var carElement = createCarElement(car);
+        fragment.appendChild(carElement);
+      });
+      carList.appendChild(fragment);
+    } else {
+      var noCarsMessage = document.createElement('p');
+      noCarsMessage.textContent = 'No cars available for this destination.';
+      carList.appendChild(noCarsMessage);
+    }
+  }
+});
+
+function getAvailableCars(destination) {
+  // Assuming this function fetches available cars for the selected destination from a database or API
+  // Here we are just returning some mock data
+  switch (destination) {
+    case 'City A':
+      return [
+        { make: 'Toyota', model: 'Camry', year: 2020 },
+        { make: 'Honda', model: 'Accord', year: 2019 }
+      ];
+    case 'City B':
+      return [
+        { make: 'Ford', model: 'Fusion', year: 2018 },
+        { make: 'Chevrolet', model: 'Malibu', year: 2017 }
+      ];
+    case 'City C':
+      return [
+        { make: 'BMW', model: '3 Series', year: 2021 },
+        { make: 'Mercedes-Benz', model: 'C-Class', year: 2020 }
+      ];
+    default:
+      return [];
+  }
+}
+
+function createCarElement(car) {
+  var carElement = document.createElement('div');
+  carElement.classList.add('car');
+  var carInfo = `
+    <h3>${car.make} ${car.model} (${car.year})</h3>
+    <p>Price: $${calculateRentalPrice(car)}</p>
+  `;
+  carElement.innerHTML = carInfo;
+  return carElement;
+}
+
+function calculateRentalPrice(car) {
+  // You can implement your own logic to calculate rental price based on car details
+  // Here we are just returning a random price between 50 and 100
+  return Math.floor(Math.random() * 51) + 50;
+}
+
+  </script>
+</body>
+</html>
+
